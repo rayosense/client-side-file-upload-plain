@@ -1,0 +1,37 @@
+<form action="#" onsubmit="upload(event)">
+    <input type="file" id="file" />
+    <input type="submit" />
+</form>
+<script type="text/javascript" src="https://unpkg.com/imagekit-javascript/dist/imagekit.min.js"></script>
+
+<script>
+    /* 
+        SDK initilization
+        authenticationEndpoint is implemented in backedn i.e. server.js file
+    */
+    var imagekit = new ImageKit({
+        publicKey: "your_public_key",
+        urlEndpoint: "your_url_endpoint", // https://ik.imagekit.io/your_imagekit_id
+        authenticationEndpoint: "http://localhost:3000/signature"
+    });
+
+    // Upload function internally uses the ImageKit.io javascript SDK
+    function upload(e) {
+        e.preventDefault();
+        var file = document.getElementById("file");
+        imagekit.upload({
+            file: file.files[0],
+            fileName: file.files[0].name || "sample-file.jpg",
+            tags: ["tag1"], // Comma seperated value of tags
+            responseFields: "tags" // Comma seperated values of fields you want in response e.g. tags, isPrivateFile etc
+        }, function (err, result) {
+            if (err) {
+                alert("Error in file upload. Check console logs for error response");
+                console.log(err);
+            } else {
+                alert("File uploaded. Check console logs for success response");
+                console.log(result);
+            }
+        })
+    }
+</script>
