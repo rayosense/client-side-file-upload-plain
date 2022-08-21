@@ -19,3 +19,5 @@ node server.js
 ```
 
 This will run an HTTP server on port 3000. Open http://localhost:3000 in your browser. Choose a file and upload it. Open the console to see the response object in logs.
+
+https://github.com/imagekitio/client-side-file-upload-plain

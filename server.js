@@ -5,9 +5,9 @@ const app = express();
 require('dotenv').config()
 
 var imagekit = new ImageKit({
-    publicKey: process.env.IMAGEKIT_PUBLIC_KEY, // your_public_key,
-    privateKey: process.env.IMAGEKIT_PRIVATE_KEY, 
-    urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT
+    publicKey: "public_a8WGCsA1kA388bo8fMmZQdJ4B1/A=",//process.env.IMAGEKIT_PUBLIC_KEY, // your_public_key,
+    privateKey: "private_18IAbpl0R7F7TKFDKeHabT8juXZ4=",//process.env.IMAGEKIT_PRIVATE_KEY, 
+    urlEndpoint: "https://ik.imagekit.io/"//process.env.IMAGEKIT_URL_ENDPOINT
 });
 
 app.get('/signature', (req, res) => {

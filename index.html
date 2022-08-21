@@ -10,8 +10,8 @@
         authenticationEndpoint is implemented in backedn i.e. server.js file
     */
     var imagekit = new ImageKit({
-        publicKey: "your_public_key",
-        urlEndpoint: "your_url_endpoint", // https://ik.imagekit.io/your_imagekit_id
+        publicKey: "public_a8WGCsA1kA388bo8fMmZQdJ4B1/A=",
+        urlEndpoint: "https://ik.imagekit.io/", // https://ik.imagekit.io/your_imagekit_id
         authenticationEndpoint: "http://localhost:3000/signature"
     });
 
@@ -22,6 +22,7 @@
         imagekit.upload({
             file: file.files[0],
             fileName: file.files[0].name || "sample-file.jpg",
+            private: true,
             tags: ["tag1"], // Comma seperated value of tags
             responseFields: "tags" // Comma seperated values of fields you want in response e.g. tags, isPrivateFile etc
         }, function (err, result) {
